@@ -28,10 +28,26 @@ Look through the application code. If you have the old Lambda Times (Applied Jav
 
 ## Self-Study/Essay Questions
 
-- [ ] What are PropTypes used for? Please describe why it's important to type check our data in JavaScript.
-- [ ] Describe a life-cycle event in React?
-- [ ] Explain the details of a Higher Order Component?
-- [ ] What are three different ways to style components in React? Explain some of the benefits of each.
+- [ ] What are PropTypes used for? Please describe why it's important to type check our data in JavaScript. 
+
+A: PropTyped are used to check the type of data props are, they make sure that the data we are receiving is the type of data we expect. They are important as they allow us as developers to make sure that the code we have written can handle the data the props hold. For instance if we expect an array but instead we receive a string, the code we have written to interface with an array would break. PropTypes also allow us to make certain or all of our props required, so that we can make sure that no prop is missintg for critical data. 
+
+- [ ] Describe a life-cycle event in React? 
+
+A: A life-cycle event is an event called by React at certain points in a components manipulation and rendering. They signify points of the cycle of a component updating, rendering and manipulation the DOM. For example, one life-cycle event is componentWillUnmount. React calls this event before a component is detattched from the DOM and garbage collected. We can use such events to respond to actions taken by React, for example removing eventListners before a component is deleted. This is better than us as developers doing this manually at every point a component could be unmounted and deleted.
+
+- [ ] Explain the details of a Higher Order Component? 
+
+A: A Higher Order Component is a component in React that passes in a Component and returns another. They are usually used to add functionalty to Components. This allows us to write the functionality once and apply it to many different Components, keeping our Components DRY'er and maintainable. One example would be authentication functionalty. We could write a HOC to add this to many components so that they only render once authentication is acquired. We can then use the component as usual without having to do anything extra with the component when rendring it. 
+
+- [ ] What are three different ways to style components in React? Explain some of the benefits of each. 
+
+A: The first way is through traditional CSS files and class/id names. The benefit of doing it this way is that all our styles are kept in one file and we can use all the techniques of specificity and inheritance in a way most web-developers are accustomed to. 
+
+The second way is to use inline styles. Each component can take a style object in React and apply it inline to the style attribute. The benefit of doing it this way is that we can change certain styles programmatically and also make styles re-usable. The downside of this is that specificity and inheritance becomes much harder to implement. 
+
+The third way is with Styled Components. This is a library used to create styles for specific components programitically and store it in a style sheet automatically. Class names are managed by the library automatically. The benefit of this is that it combines the benefits of both inline styles in React and traditional style files. We can use all of our CSS selectors along with specificity and inheritance, whilst retaining the ability to change styles programatically without having to change class names or add styles to the style attribute.
+
 
 ## Project Setup
 
