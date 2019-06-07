@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Card from './Card';
-
+import pt from 'prop-types';
 const Cards = props => {
   let { cards } = props;
   return (
@@ -18,6 +18,13 @@ const Cards = props => {
   )
 }
 
-// Make sure you include prop types for all of your incoming props
+Cards.propTypes = {
+  cards: pt.arrayOf(pt.shape({
+    headline: pt.string,
+    tab: pt.string,
+    img: pt.string,
+    author: pt.string,
+  })).isRequired,
+}
 
 export default Cards;
