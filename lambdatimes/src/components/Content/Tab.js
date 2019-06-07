@@ -9,7 +9,7 @@ const Tab = props => {
 
   return (
     <div
-      className={`tab${selectedTab === tab ? ' actvie-tab' : ''}`}
+      className={`tab${selectedTab === tab ? ' active-tab' : ''}`}
       onClick={() => {
         selectTabHandler(tab);
       }}
