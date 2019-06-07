@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import { carouselData } from '../../data'
+import styled from 'styled-components';
 // Complete this Carousel 
+
+const StyledCarouselImage = styled.img`
+  width: 100%;
+  display: block;
+  transition: 0.5s;
+  position: absolute;
+  left:0;
+  transform: translateX(${props => props.offset}%);
+  z-index: 0;
+`;
+
 export default class Carousel extends Component {
   constructor(props){
     super(props);
     this.state = {
       images: [],
-      selectedIndex: 3,
+      selectedIndex: 0
     }
   }
   componentDidMount(){
@@ -21,7 +33,9 @@ export default class Carousel extends Component {
       index = this.state.selectedIndex - 1;
     }
     this.setState((state) => {
-      return {selectedIndex: index};
+      return {
+        selectedIndex: index
+      };
     })
   }
 
@@ -33,19 +47,27 @@ export default class Carousel extends Component {
       index = this.state.selectedIndex + 1;
     }
     this.setState((state) => {
-      return {selectedIndex: index};
+      return {
+        selectedIndex: index
+      };
     })
   }
 
   selectedImage = () => {
-    return <img src={this.state.images[this.state.selectedIndex]} style={{display: 'block'}} />
+    let translateDelta = this.state.selectedIndex * 100
+
+    return (
+      this.state.images.map((img, index) => {
+        return <StyledCarouselImage key={`carousel-image-${index}`} src={img} offset={(index * 100) - translateDelta} />
+      })
+    )
   }
   
   render(){
     return (
       <div className="carousel">
-        <div className="left-button" onClick={this.leftClick}>{"<"}</div>
         {this.selectedImage()}
+        <div className="left-button" onClick={this.leftClick}>{"<"}</div>
         <div className="right-button" onClick={this.rightClick}>{">"}</div>
       </div>
     )
