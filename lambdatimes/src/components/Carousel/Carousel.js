@@ -14,14 +14,26 @@ export default class Carousel extends Component {
   }
 
   leftClick = () => {
+    let index;
+    if (this.state.selectedIndex === 0){
+      index = this.state.images.length - 1;
+    } else {
+      index = this.state.selectedIndex - 1;
+    }
     this.setState((state) => {
-      return {selectedIndex: state.selectedIndex - 1};
+      return {selectedIndex: index};
     })
   }
 
   rightClick = () => {
+    let index;
+    if (this.state.selectedIndex === (this.state.images.length - 1)){
+      index = 0;
+    } else {
+      index = this.state.selectedIndex + 1;
+    }
     this.setState((state) => {
-      return {selectedIndex: state.selectedIndex + 1};
+      return {selectedIndex: index};
     })
   }
 
