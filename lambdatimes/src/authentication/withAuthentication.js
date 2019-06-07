@@ -23,12 +23,9 @@ export default function withAuthentication(Component, Login) {
         }
 
         render() {
-            return (
-                <div>
-                    <Component {...this.props} />
-                    <Login updateAuth={this.updateAuthentication} showLogin={!this.state.loggedIn} />
-                </div>
-            );
+            if (this.state.loggedIn)
+                return <Component {...this.props} />;
+            return <Login updateAuth={this.updateAuthentication} showLogin={!this.state.loggedIn}/>;
         }
     }
 }
