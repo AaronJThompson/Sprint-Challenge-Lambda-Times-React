@@ -25,7 +25,7 @@ const Tabs = props => {
   );
 };
 
-Tab.propTypes = {
+Tabs.propTypes = {
   selectTab: pt.func.isRequired,
   selectedTab: pt.string.isRequired,
   tabs: pt.arrayOf(pt.string).isRequired,
